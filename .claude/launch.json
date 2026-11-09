@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "raja-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4231", "-d", "out"],
+      "port": 4231
+    },
+    {
+      "name": "raja-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "-p", "4230"],
+      "port": 4230
+    }
+  ]
+}

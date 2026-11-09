@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Originaux d’images non recadrés
+/assets-src/generated/_avant-*
