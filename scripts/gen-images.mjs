@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Génère la série photo ILLUSTRATIVE du prototype Raja (fal.ai Flux 1.1 Pro Ultra, texte → image).
+ * Génère la série photo ILLUSTRATIVE du prototype 5 Rivers (fal.ai Flux 1.1 Pro Ultra, texte → image).
  * Un seul style partagé (STYLE) pour une série cohérente.
  * Images de démonstration générées par IA : à faire approuver ou à remplacer par de vraies photos
  * du restaurant avant la mise en ligne (voir docs/ASSETS.md).

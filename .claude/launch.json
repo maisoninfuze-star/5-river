@@ -2,15 +2,24 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "raja-static",
+      "name": "five-rivers-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4231", "-d", "out"],
+      "runtimeArgs": [
+        "scripts/serve-preview.py",
+        "4231"
+      ],
       "port": 4231
     },
     {
-      "name": "raja-dev",
+      "name": "five-rivers-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "-p", "4230"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "4230"
+      ],
       "port": 4230
     }
   ]

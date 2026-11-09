@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Retire les bouteilles et verres de boisson ambrée de l'arrière-plan des images générées
-(le menu de Raja porte la mention halal : aucune boisson qui ressemble à de l'alcool).
+(le menu 5 Rivers porte la mention halal : aucune boisson qui ressemble à de l'alcool).
 Utilise fal-ai/nano-banana-pro/edit. Les plats étant eux-mêmes des images illustratives
 générées, l'édition ne trahit aucune vraie photo du restaurant.
 

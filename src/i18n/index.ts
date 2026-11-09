@@ -20,6 +20,6 @@ export const pagePath = (locale: Locale, page: Page, hash?: string) =>
 export const fill = (template: string, values: Record<string, string | number>) =>
   template.replace(/\{(\w+)\}/g, (_, k: string) => String(values[k] ?? ""));
 
-export const LANG_STORAGE_KEY = "raja-lang";
+export const LANG_STORAGE_KEY = "five-rivers-lang";
 
 export type { Dict };

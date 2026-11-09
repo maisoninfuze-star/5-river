@@ -1,7 +1,6 @@
 # 5 Rivers Restaurant — site web
 
 Site bilingue (français par défaut, anglais complet) : accueil + carte complète (179 plats).
-Anciennement « Restaurant Raja » : même adresse, nouveau nom et nouveau menu (novembre 2026).
 Next.js 16 (App Router), TypeScript, Tailwind CSS 4, **export statique** (HTML pur, aucun serveur).
 
 ## Démarrer

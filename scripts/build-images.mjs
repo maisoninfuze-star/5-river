@@ -2,7 +2,7 @@
 /**
  * Produit les images responsives de public/images/ :
  *   <clé>-<largeur>.avif / .webp  (480, 800, 1200, 1600) + <clé>-1200.jpg (repli)
- * Source : assets-src/owner/<clé>.jpg (photo fournie par Raja) si présente,
+ * Source : assets-src/owner/<clé>.jpg (photo fournie par le restaurant) si présente,
  * sinon assets-src/generated/<clé>.jpg (image illustrative).
  *
  *   npm run images

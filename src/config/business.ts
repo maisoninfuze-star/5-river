@@ -23,7 +23,7 @@ export const business = {
   name: {
     value: "5 Rivers Restaurant",
     verified: false,
-    source: "Couverture du menu imprimé fournie le 2026-11-09 (ancien nom : Restaurant Raja)",
+    source: "Couverture du menu imprimé fournie le 2026-11-09",
   } satisfies Verifiable<string>,
 
   /** Mentions de la couverture du menu. */
@@ -49,7 +49,7 @@ export const business = {
       country: "CA",
     },
     verified: false,
-    source: "Ancien menu Raja + fiche Uber Eats « Restaurant 5 Rivers » à la même adresse (à confirmer)",
+    source: "Ancien menu du restaurant (avant le changement de nom) — à confirmer",
   },
 
   phone: {
@@ -58,7 +58,7 @@ export const business = {
       e164: "+15147481200",
     },
     verified: false,
-    source: "Ancien menu Raja — absent du menu 5 Rivers, À CONFIRMER",
+    source: "Ancien menu du restaurant — absent du menu 5 Rivers, À CONFIRMER",
   },
 
   /**
@@ -69,7 +69,7 @@ export const business = {
   hours: {
     value: null as null | { timeZone: string; daily: { opens: string; closes: string } },
     verified: false,
-    source: "Inconnues (l'ancien menu Raja indiquait 11 h – 22 h, non repris)",
+    source: "Inconnues — absentes du menu 5 Rivers",
   },
 
   /** Symbole halal imprimé sur le menu. Aucun organisme certificateur connu. */

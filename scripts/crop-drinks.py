@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Recadre les images générées où une bouteille ou un verre de boisson ambrée
-apparaît en bordure (le menu de Raja porte la mention halal).
+apparaît en bordure (le menu 5 Rivers porte la mention halal).
 Fractions (gauche, haut, droite, bas) de l'image d'origine. Les originaux sont
 conservés dans assets-src/generated/_avant-recadrage/.
 """
