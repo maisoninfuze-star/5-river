@@ -5,6 +5,9 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { MotionController } from "@/components/MotionController";
+import { Splash } from "@/components/Splash";
+import { splashPrepaint } from "@/lib/splash";
+import { SplashController } from "@/components/SplashController";
 import { getDictionary, hasLocale, locales } from "@/i18n";
 import { cinzel, cormorant, jost } from "@/lib/fonts";
 import "../globals.css";
@@ -28,8 +31,16 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const t = getDictionary(lang);
 
   return (
-    <html lang={lang === "fr" ? "fr-CA" : "en-CA"} className={`${cinzel.variable} ${cormorant.variable} ${jost.variable}`}>
+    <html
+      lang={lang === "fr" ? "fr-CA" : "en-CA"}
+      className={`${cinzel.variable} ${cormorant.variable} ${jost.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: splashPrepaint }} />
+      </head>
       <body>
+        <Splash />
         <Header locale={lang} t={t} />
         <main id="contenu" tabIndex={-1} className="outline-none">
           {children}
@@ -37,6 +48,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <Footer locale={lang} t={t} />
         <MobileActionBar locale={lang} t={t} />
         <MotionController />
+        <SplashController />
         <JsonLd locale={lang} />
       </body>
     </html>

@@ -4,7 +4,8 @@ import { pagePath, type Dict, type Locale } from "@/i18n";
 import { ArrowIcon } from "../Icons";
 import { OrderButton } from "../OrderButton";
 import { Picture } from "../Picture";
-import { FiligreeCorners, Rivers } from "../Rivers";
+import { Emblem } from "../Emblem";
+import { FiligreeCorners } from "../Rivers";
 
 /**
  * Première vue « couverture de menu » : cadre doré à filigranes, titre centré,
@@ -16,7 +17,7 @@ export function Hero({ locale, t }: { locale: Locale; t: Dict }) {
     <section aria-labelledby="hero-title" className="dark glow relative overflow-hidden">
       <div className="shell relative pt-5 pb-6 md:pt-8 lg:pt-10 lg:pb-10">
         <div className="relative border border-gold/45 p-[9px]">
-          <div className="relative border border-gold/25 px-4 pt-8 pb-6 sm:px-8 md:pt-14 md:pb-8 lg:px-10 lg:py-14">
+          <div className="relative border border-gold/25 px-4 pt-6 pb-6 sm:px-8 md:pt-12 md:pb-8 lg:px-10 lg:py-12">
             <FiligreeCorners />
             <div className="grid items-center gap-y-8 lg:grid-cols-12 lg:gap-x-10">
               {/* Photo gauche (desktop) */}
@@ -29,17 +30,15 @@ export function Hero({ locale, t }: { locale: Locale; t: Dict }) {
 
               {/* Texte central */}
               <div className="text-center lg:col-span-6">
-                <p className="eyebrow centered rise justify-center max-sm:gap-2 max-sm:text-[0.6rem] max-sm:tracking-[0.16em] max-sm:before:w-4 max-sm:after:w-4">{t.hero.eyebrow}</p>
-                <h1 id="hero-title" className="display mt-5 text-[clamp(2.7rem,1rem+4.6vw,5.6rem)] text-cream lg:mt-8">
-                  <span className="rise-2 block lg:whitespace-nowrap">{t.hero.titleA}</span>
-                  <span className="rise-3 block text-gold-light lg:whitespace-nowrap">
+                <Emblem id="hero-em" label="" className="hero-emblem mx-auto block w-[176px] sm:w-[230px] lg:w-[300px]" />
+                <h1 id="hero-title" className="display mt-5 text-[clamp(2.1rem,1rem+2.9vw,3.7rem)] text-cream lg:mt-7">
+                  <span className="sr-only">5 Rivers Restaurant — </span>
+                  <span className="rise-2 lg:whitespace-nowrap">{t.hero.titleA}</span>{" "}
+                  <span className="rise-3 text-gold-light lg:whitespace-nowrap">
                     <em>{t.hero.titleB}</em>
                   </span>
                 </h1>
-                <div className="mt-5 flex justify-center lg:mt-8">
-                  <Rivers animate width={230} className="h-auto w-[130px] sm:w-[180px] lg:w-[230px]" />
-                </div>
-                <p className="lead rise-4 mx-auto mt-5 text-center max-sm:text-[1rem] max-sm:leading-relaxed lg:mt-6">{t.hero.lead}</p>
+                <p className="lead rise-4 mx-auto mt-4 text-center max-sm:hidden lg:mt-5">{t.hero.lead}</p>
                 <div className="rise-4 mt-6 grid grid-cols-2 gap-2.5 sm:flex sm:justify-center sm:gap-3 lg:mt-10">
                   <Link href={pagePath(locale, "menu")} className="btn max-sm:px-3 max-sm:tracking-[0.1em]">
                     {t.actions.seeMenu}

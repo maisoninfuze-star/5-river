@@ -24,9 +24,11 @@ Retouches :
   boisson ambrée (le menu porte la mention halal) ; coins du `thali` retouchés localement (OpenCV).
   Voir `scripts/crop-drinks.py`. Originaux non recadrés dans `assets-src/generated/_avant-*` (non versionnés).
 
-Le logo 5 Rivers n'a pas été repris de la photo de la couverture (reflets, perspective).
-Le mot-symbole « 5 RIVERS / RESTAURANT » et les cinq traits de couleur sont redessinés en vecteur
-d'après la couverture (`Wordmark.tsx`, `Rivers.tsx`) : à remplacer par le fichier officiel.
+Le logo 5 Rivers fourni (243 × 244 px) est trop petit pour le web. Il est redessiné en vecteur,
+fidèle à l'original : anneau doré, « FLAVOURS OF INDIA », silhouette du Taj Mahal, « 5 RIVERS »,
+« RESTAURANT », les cinq rivières colorées, « CUISINE INDIAN » (`src/components/Emblem.tsx`).
+Version horizontale compacte pour l'en-tête : `Wordmark.tsx`. À remplacer par le fichier officiel
+(SVG, AI ou PDF) dès qu'il est disponible.
 Les photos de plats imprimées dans le menu 5 Rivers n'ont pas été reprises (source et droits inconnus).
 
 ## Remplacer une photo

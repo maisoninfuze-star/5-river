@@ -2,7 +2,7 @@ import Link from "next/link";
 import { business, directionsUrl, fullAddress, telHref } from "@/config/business";
 import { pagePath, type Dict, type Locale } from "@/i18n";
 import { LangSwitch } from "./LangSwitch";
-import { Wordmark } from "./Wordmark";
+import { Emblem } from "./Emblem";
 
 export function Footer({ locale, t }: { locale: Locale; t: Dict }) {
   const links = [
@@ -19,7 +19,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dict }) {
           <span className="h-px w-20 bg-gold/50" />
         </div>
         <Link href={pagePath(locale, "home")} aria-label={t.a11y.home} className="mt-8 inline-flex">
-          <Wordmark size="lg" rivers />
+          <Emblem id="footer-em" className="w-[220px] md:w-[260px]" label="" />
         </Link>
         <p className="caps mt-6 text-[0.68rem] text-gold">
           {business.cuisine.value[locale]} · {t.strip.halal}

@@ -300,16 +300,17 @@
      Lisible sans JS et sans animation. Les révélations ne s'activent que si JS
      ajoute .motion-ok (jamais avec prefers-reduced-motion). */
   @media (prefers-reduced-motion: no-preference) {
-    .rise { animation: rise 0.9s var(--ease-out-soft) both; }
-    .rise-2 { animation: rise 0.9s 0.1s var(--ease-out-soft) both; }
-    .rise-3 { animation: rise 0.9s 0.2s var(--ease-out-soft) both; }
-    .rise-4 { animation: rise 0.9s 0.3s var(--ease-out-soft) both; }
-    .settle img { animation: settle 1.8s var(--ease-out-soft) both; }
-    .river-draw path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s 0.35s var(--ease-out-soft) forwards; }
-    .river-draw path:nth-child(2) { animation-delay: 0.45s; }
-    .river-draw path:nth-child(3) { animation-delay: 0.55s; }
-    .river-draw path:nth-child(4) { animation-delay: 0.65s; }
-    .river-draw path:nth-child(5) { animation-delay: 0.75s; }
+    .rise { animation: rise 0.9s var(--intro-delay) var(--ease-out-soft) both; }
+    .rise-2 { animation: rise 0.9s calc(var(--intro-delay) + 0.1s) var(--ease-out-soft) both; }
+    .rise-3 { animation: rise 0.9s calc(var(--intro-delay) + 0.2s) var(--ease-out-soft) both; }
+    .rise-4 { animation: rise 0.9s calc(var(--intro-delay) + 0.3s) var(--ease-out-soft) both; }
+    .settle img { animation: settle 1.8s var(--intro-delay) var(--ease-out-soft) both; }
+    .river-draw path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s calc(var(--intro-delay) + 0.35s) var(--ease-out-soft) forwards; }
+    .river-draw path:nth-child(2) { animation-delay: calc(var(--intro-delay) + 0.45s); }
+    .river-draw path:nth-child(3) { animation-delay: calc(var(--intro-delay) + 0.55s); }
+    .river-draw path:nth-child(4) { animation-delay: calc(var(--intro-delay) + 0.65s); }
+    .river-draw path:nth-child(5) { animation-delay: calc(var(--intro-delay) + 0.75s); }
+    .hero-emblem { animation: emblem-in 1.1s var(--intro-delay) var(--ease-out-soft) both; }
 
     .motion-ok [data-reveal] {
       transition: opacity 0.9s var(--ease-out-soft), transform 0.9s var(--ease-out-soft);
@@ -318,6 +319,74 @@
     .motion-ok [data-reveal="img"]:not(.is-in) { opacity: 0; transform: none; clip-path: inset(0 0 8% 0); }
     .motion-ok [data-reveal="img"] { transition: opacity 1s ease, clip-path 1.2s var(--ease-out-soft); }
   }
+}
+
+/* ───────────── Ouverture animée (repris de BMS) ─────────────
+   1 anneaux dorés · 2 « FLAVOURS OF INDIA » · 3 le Taj Mahal sort du sol ·
+   4 le « 5 » pivote, « RIVERS » se dévoile · 5 RESTAURANT · 6 les cinq rivières
+   coulent · 7 « CUISINE INDIAN » · 8 le rideau se lève (3,1 s). */
+:root { --intro-delay: 0s; }
+html:not(.intro-skip) { --intro-delay: 3.25s; }
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(55% 50% at 50% 50%, rgba(176, 30, 48, 0.55), transparent 72%),
+    var(--color-wine);
+  cursor: pointer;
+}
+.splash-corners { inset: 20px; }
+.intro-skip .splash { display: none; }
+.splash-badge { width: min(62vh, 78vw, 460px); }
+.splash-badge svg { display: block; width: 100%; height: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .splash { animation: splash-leave 0.85s cubic-bezier(0.7, 0, 0.3, 1) 3.1s forwards; }
+  .splash.hold { animation: none; }
+  @keyframes splash-leave { to { translate: 0 -101%; } }
+
+  .splash-badge { animation: badge-settle 3.1s var(--ease-out-soft) both; }
+  @keyframes badge-settle {
+    from { scale: 0.92; filter: drop-shadow(0 0 0 rgba(230, 194, 124, 0)); }
+    70% { scale: 1; filter: drop-shadow(0 0 0 rgba(230, 194, 124, 0)); }
+    85% { filter: drop-shadow(0 0 28px rgba(230, 194, 124, 0.45)); }
+    to { scale: 1; filter: drop-shadow(0 0 10px rgba(230, 194, 124, 0.15)); }
+  }
+  .splash .em-ring { stroke-dasharray: 1; stroke-dashoffset: 1; animation: em-draw 1s var(--ease-out-soft) forwards; }
+  .splash .em-ring-2 { animation-delay: 0.14s; }
+  .splash .em-arc-top { opacity: 0; animation: em-fade 0.7s var(--ease-out-soft) 0.3s both; }
+  .splash .em-taj { clip-path: inset(100% 0 0 0); animation: em-rise 1s var(--ease-out-soft) 0.5s forwards; }
+  .splash .em-rule { transform-box: fill-box; transform-origin: center; scale: 0 1; animation: em-scale 0.7s var(--ease-out-soft) 1s forwards; }
+  .splash .em-five {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: 50% 80%;
+    animation: em-five 0.7s cubic-bezier(0.2, 1.3, 0.4, 1) 1.3s both;
+  }
+  .splash .em-word { clip-path: inset(0 100% 0 0); animation: em-wipe 0.75s var(--ease-out-soft) 1.45s forwards; }
+  .splash .em-ornament-2, .splash .em-restaurant { opacity: 0; animation: em-fade-up 0.6s var(--ease-out-soft) 1.85s both; }
+  .splash .em-rivers path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: em-draw 0.7s var(--ease-out-soft) forwards; }
+  .splash .em-rivers path:nth-child(1) { animation-delay: 2s; }
+  .splash .em-rivers path:nth-child(2) { animation-delay: 2.08s; }
+  .splash .em-rivers path:nth-child(3) { animation-delay: 2.16s; }
+  .splash .em-rivers path:nth-child(4) { animation-delay: 2.24s; }
+  .splash .em-rivers path:nth-child(5) { animation-delay: 2.32s; }
+  .splash .em-arc-bottom, .splash .em-ornament:not(.em-ornament-2) { opacity: 0; animation: em-fade 0.7s var(--ease-out-soft) 2.35s both; }
+
+  @keyframes em-draw { to { stroke-dashoffset: 0; } }
+  @keyframes em-fade { to { opacity: 1; } }
+  @keyframes em-fade-up { from { opacity: 0; translate: 0 10px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes em-rise { from { clip-path: inset(100% 0 0 0); translate: 0 14px; } to { clip-path: inset(0 0 0 0); translate: 0 0; } }
+  @keyframes em-scale { to { scale: 1 1; } }
+  @keyframes em-wipe { to { clip-path: inset(0 0 0 0); } }
+  @keyframes em-five { from { opacity: 0; translate: -40px 0; rotate: -10deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
+  @keyframes emblem-in { from { opacity: 0; scale: 0.9; } to { opacity: 1; scale: 1; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash { display: none; }
 }
 
 @keyframes rise {

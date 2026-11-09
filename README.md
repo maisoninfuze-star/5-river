@@ -22,7 +22,8 @@ Aperçu du build : `python3 -m http.server 4231 -d out` puis http://localhost:42
 | Plats, prix (en cents), sections, sauces de caris | `src/data/menu.ts` |
 | Photos (registre, textes alternatifs) | `src/data/images.ts` + `assets-src/` |
 | Textes de l'interface FR / EN | `src/i18n/dictionaries.ts` |
-| Logo, motif des cinq rivières, filigranes | `src/components/Wordmark.tsx`, `src/components/Rivers.tsx` |
+| Logo (emblème rond, version en-tête), cinq rivières, filigranes | `src/components/Emblem.tsx`, `Wordmark.tsx`, `Rivers.tsx` |
+| Animation d'ouverture (une fois par session ; `#intro` la rejoue, `#introhold` la fige) | `src/components/Splash.tsx`, `SplashController.tsx`, `globals.css` (.splash) |
 | Couleurs, typographie, mouvement | `src/app/globals.css` |
 
 Après une modification du menu : `npm run check:menu` vérifie identifiants, prix et sauces.
